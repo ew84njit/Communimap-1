@@ -1,0 +1,37 @@
+.TitleText{
+  text-align:center;
+  color:black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#map{
+  height: 600px;  
+  width: 700px;  
+	display:inline-block;
+  border: 5px solid black;
+  margin-left: 25%;
+}
+#Form{
+  text-align:center;
+  border-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrap{
+	text-align:center;
+}
+
+#submitBtn{
+  padding:5px;
+  border-color:black;
+}
+
+#Submission{
+  border-color:black; 
+  padding:10px;
+}
+
+#desc{
+  padding-bottom:20px;
+  max-width: 200px;
+}
