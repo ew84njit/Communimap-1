@@ -12,7 +12,7 @@
 
   <body>
 
-    <h1 class="TitleText">Map Viewer</h1>
+    <h1 class="TitleText">Map Plotter</h1>
 
     <br>
 
