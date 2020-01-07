@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>	
   <head>
-    <link rel = "stylesheet" type="text/css" href= "style.css" media="all"/>
+    <link rel = "stylesheet" type="text/css" href= "/Map/style.css" media="all"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Pickup</title>
@@ -14,25 +14,24 @@
 
     <h1 class="TitleText">Map Plotter</h1>
 
-    <br>
-	
+
     <div id = "Submission">
       <form id = "Form" action="insert.php" method="POST">
         Event Title:<br>
-        <input type="text" name="title"/><br>
+        <input type="text" name="title"/><br><br>
 
         Event Description:<br>
-        <input type="text" name="about" id="desc"/><br>
+        <input type="text" name="about" id="desc"/><br><br>
 
         Event Date:<br>
-        <input type="datetime-local" name="date" /><br>
+        <input type="datetime-local" name="date" /><br><br>
 
         Event Location:<br>
-        <input type="text" name="location"/><br>
+        <input type="text" name="location"/><br><br>
 
         Latitude:<br>
-        <input type="text" name="lat"/><br>
-	
+        <input type="text" name="lat"/><br><br>
+
         Longitude:<br>
         <input type="text" name="long"/><br><br>
 
@@ -43,22 +42,22 @@
     </div>
 
     <?php
-      //Creating variables for coordinates
+    
       $lat = array();
       $lon = array();
       $coordinates = array();
 		  $link = mysqli_connect("localhost", "root", "", "data");
-      //Displays an error message if program can not connect to MySQL database
+
       if (!$link) {
         echo "Error: Unable to connect to MySQL." . PHP_EOL;
         echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
         echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
         exit;
       }
-      //Extracts data from MySQL database in ascending order by ID
+  
       $sql = "SELECT latitude,longitude,title,about,date,address FROM events ORDER BY ID ASC";
       $result = $link->query($sql);
-      
+
       if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
           $lat = $row["latitude"];
