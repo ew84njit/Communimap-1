@@ -15,7 +15,7 @@
     <h1 class="TitleText">Map Plotter</h1>
 
     <br>
-
+	
     <div id = "Submission">
       <form id = "Form" action="insert.php" method="POST">
         Event Title:<br>
@@ -32,7 +32,7 @@
 
         Latitude:<br>
         <input type="text" name="lat"/><br>
-
+	
         Longitude:<br>
         <input type="text" name="long"/><br><br>
 
@@ -43,22 +43,22 @@
     </div>
 
     <?php
-    
+      //Creating variables for coordinates
       $lat = array();
       $lon = array();
       $coordinates = array();
 		  $link = mysqli_connect("localhost", "root", "", "data");
-
+      //Displays an error message if program can not connect to MySQL database
       if (!$link) {
         echo "Error: Unable to connect to MySQL." . PHP_EOL;
         echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
         echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
         exit;
       }
-  
+      //Extracts data from MySQL database in ascending order by ID
       $sql = "SELECT latitude,longitude,title,about,date,address FROM events ORDER BY ID ASC";
       $result = $link->query($sql);
-
+      
       if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
           $lat = $row["latitude"];
