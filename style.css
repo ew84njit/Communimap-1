@@ -6,10 +6,10 @@
 
 #map{
   height: 600px;  
-  width: 700px;  
+  width: 100%;  
 	display:inline-block;
-  border: 5px solid black;
-  margin-left: 25%;
+  border: 2px solid black;
+ 
 }
 #Form{
   text-align:center;
