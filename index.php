@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>	
   <head>
-    <link rel = "stylesheet" type="text/css" href= "/MAKESPP/style.css" media="all"/>
+    <link rel = "stylesheet" type="text/css" href= "style.css" media="all"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Pickup</title>
