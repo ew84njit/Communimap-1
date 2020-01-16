@@ -1,5 +1,27 @@
+<html>
+<head>
+    <link rel = "stylesheet" type="text/css" href = "theme.css" media="all"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Insert - Pickup Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id = "container">
+        <!--TOP BAR-->
+        <div class = "title">
+            <h1 class="TitleText">PICKUP FINDER</h1>
+        </div> 
+        <br>
+        <button onclick="window.location.href = 'index.php';" class="submitBtn">Go Home</button>
+        <div class = "spacer"></div>
+    </div>
+</body>
+</html>
+
 <?php
-$link = mysqli_connect("localhost", "root", "", "data");
+$link = mysqli_connect("localhost", "root", "root", "data",3306);
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -39,7 +61,14 @@ else{
 mysqli_close($link);
 
 echo'<br>';
-echo '<a href="index.php">Click here to return to the Homepage</a>';
+
 ?>
 
 
+<html>
+<body>
+    <div class="footer">
+        <p>© 2020 Sky Ventor</p><br>
+    </div>
+</body>
+</html>
