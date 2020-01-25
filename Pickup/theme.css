@@ -1,0 +1,97 @@
+body {
+  margin:0px;
+  background-color:#fff;
+}
+
+#container{
+  background-color:#fff;
+  
+}
+
+.title{
+  background-color:black;
+  width: auto;
+  height: auto;
+  border-color: black;
+
+}
+
+.TitleText{
+  display: inline-block;
+  text-align: center;
+  color:white;
+  font-family: Impact, fantasy;
+  font-weight:bold;
+  background-color:black;
+  margin:auto;
+  padding: 14px 16px;
+}
+
+.image{
+  text-align:right;
+}
+
+.spacer{
+  padding:20px;
+}
+#map{
+  height: 600px;  
+  width: 900px;
+	display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:50px;
+}
+#Form{
+  text-align:center;
+  border-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  word-spacing: 2pt;
+}
+
+.label{
+  color:black;
+  padding-bottom:20px;
+
+}
+
+#wrap{
+	text-align:center;
+}
+
+.submitBtn{
+  padding:5px;
+  border-color:black;
+  background-color:rgb(35, 35, 212);
+  color:white;
+  height:25px;
+  width:75px;
+}
+
+#Submission{
+  border-color:black; 
+  padding:10px;
+}
+
+#desc{
+  padding-bottom:20px;
+  width: 300px;
+}
+
+.footer {
+  left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+  height:100px;
+  font-family: Arial;
+}
+
+.footer p{
+  padding-top:90px;
+}
+
+.button{
+  margin-left:5px;
+}
