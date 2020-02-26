@@ -7,7 +7,7 @@ This project used WAMP Server and phpmyadmin to execute the application.
 
 
 
-Outline:
+TODO:
 - [x]Create fully functioning form
 - [x]Connect the form information to the database
 - [x]Implement Google Maps to webpage
