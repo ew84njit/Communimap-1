@@ -14,7 +14,7 @@ Outline:
 - [x]Plot database information to on map using markers
 - [ ]Allow user to type in address instead of longitude and latitude
 
-Click on the image below to see a video demonstration on how the application works. 
+**Click on the image below to see a video demonstration on how the application works.** 
 
 [![Demo](https://i.imgur.com/0wrOVXm.png)](https://youtu.be/073-Q1ZL7X8)
 
