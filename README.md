@@ -8,11 +8,11 @@ This project used WAMP Server and phpmyadmin to execute the application.
 
 
 Outline:
-[x]Create fully functioning form
-[x]Connect the form information to the database
-[x]Implement Google Maps to webpage
-[x]Plot database information to on map using markers
-[]Allow user to type in address instead of longitude and latitude
+- [x]Create fully functioning form
+- [x]Connect the form information to the database
+- [x]Implement Google Maps to webpage
+- [x]Plot database information to on map using markers
+- []Allow user to type in address instead of longitude and latitude
 
 Click on the image below to see a video demonstration on how the application works. 
 
