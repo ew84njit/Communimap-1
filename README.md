@@ -5,4 +5,4 @@ They can add information about certain events happening and others can view it o
 This project used WAMP Server and phpmyadmin to execute the web application. 
 Here is a quick YouTube video demonstrating how this website can be used: https://youtu.be/073-Q1ZL7X8. 
 
-<img src="https://i.imgur.com/z5Ntcwj.gif" width=200><br>
+<img src="https://imgur.com/a/QhYMWsx" width=200><br>
