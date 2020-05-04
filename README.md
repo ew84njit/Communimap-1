@@ -1,8 +1,8 @@
 # Map Plotter
-This is input based marker plotter using Google Maps.<br>
-Users can add their own markers to the map for others to see.<br>
-They can add information about certain events happening and others can view it on one single map.<br> 
-This project used WAMP Server and phpmyadmin to execute the application.<br> 
+This is input based marker plotter using Google Maps.
+Users can add their own markers to the map for others to see.
+They can add information about certain events happening and others can view it on one single map.
+This project used WAMP Server and phpmyadmin to execute the application.
 
 
 
