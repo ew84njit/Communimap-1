@@ -17,5 +17,5 @@ TODO:
 
 **Click on the image below to see a video demonstration on how the application works.** 
 
-[![Demo](https://i.imgur.com/0wrOVXm.png)](https://youtu.be/073-Q1ZL7X8)
+
 
