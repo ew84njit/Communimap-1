@@ -11,17 +11,26 @@
     <div id = "container">
         <!--TOP BAR-->
         <div class = "title">
-            <h1 class="TitleText">PICKUP FINDER</h1>
+        <h1 class="TitleText">communimap.</h1>
+        <h2 class="slogan">share your events to the world</h2><br>
         </div> 
+
+        <div class="guide">
+        <a class="menu" href="index.php" style="text-decoration:none">Home</a>
+        </div>
+        <div class = "spacer"></div>
+
+    <div id = "content">
         <br>
         <button onclick="window.location.href = 'index.php';" class="submitBtn">Go Home</button>
         <div class = "spacer"></div>
     </div>
+
 </body>
 </html>
 
 <?php
-$link = mysqli_connect("localhost", "root", "root", "data",3306);
+$link = mysqli_connect("localhost", "root", "", "mapshare",3306);
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -30,6 +39,7 @@ if (!$link) {
     exit;
 }
 
+
 echo "Connection was successful!." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
@@ -37,23 +47,17 @@ $title = $_POST['title'];
 $about = $_POST['about'];
 $date = $_POST['date'];
 $address = $_POST['location'];
-$lat = $_POST['lat'];
-$lon = $_POST['long'];
 
+$sql = "INSERT INTO events(`title`,`about`,`date`,`address`) VALUES('$title','$about','$date','$address')";
 
-$sql = "INSERT INTO events(title,about,date,address,latitude,longitude) VALUES('$title','$about','$date','$address','$lat','$lon')";
-//$stmt = $link->prepare($sql);
-
-//$stmt->bind_param("ssssss",$title,$about,$date,$address,$lat,$lon);
-//$stmt->execute();
 
 echo'<br>';
-
-
-if($link->query($sql)){
+if($link->query($sql)) 
+{
 	echo "New record is inserted";
 }
-else{
+else
+{
 	echo "There is an error. Record not inserted.";
 }
 

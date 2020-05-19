@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>	
 <head>
+  <title>Mapshare</title>
   <link rel = "stylesheet" type="text/css" href = "theme.css" media="all"/>
+  <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Pickup</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFMtt2pb3rmfAaXj3S3-4vWO5ajd5j3So&libraries=places"></script>
+
 </head>
 
 <body>
@@ -14,45 +18,47 @@
 
     <!--TOP BAR-->
     <div class = "title">
-      <h1 class="TitleText">PICKUP FINDER</h1>
+      <h1 class="TitleText">communimap.</h1>
+      <h2 class="slogan">share your events to the world</h2><br>
     </div> 
 
+    <div class="guide">
+      <a class="menu" href="index.php" style="text-decoration:none">Home</a>
+    </div>
     <div class = "spacer"></div>
 
     <div id = "content">
-      <form id = "Form" action="insert.php" method="POST">
-        <label class="label">
-          Event Title:<br>
-          <input type="text" name="title"/><br><br>
-        </label>
+      <!--FORM-->
+      <form id="Form" action="insert.php" method="POST">
+        <div class="form-group">
+          <label>Event Title</label><br>
+          <input type="text" name="title" placeholder="Enter Title"/><br><br>
+        </div>
 
-        <label class="label">
-          Event Description:<br>
-          <input type="text" name="about" id="desc"/><br><br>
-        </label>  
+        <div class="form-group">
+          Event Description<br>
+          <textarea rows="4" cols="100" name="about"></textarea><br><br>
+        </div>
 
         <label class="label">
           Event Date:<br>
-          <input type="datetime-local" name="date" /><br><br>
+          <input type="datetime-local" name="date"/><br><br>
         </label>
 
-        <label class="label">
-          Event Location:<br>
-          <input type="text" name="location"/><br><br>
-        </label>
+        <div class="form-group">
+          <label class="label">Event Location</label><br>
+          <input type="text" name="location" placeholder="Enter Address"/><br><br>
+        </div>
 
-        <label class="label">
-          Latitude:<br>
-          <input type="text" name="lat"/><br><br>
-        </label>
+        <div id="infowindow-content">
+          <img src="" width="16" height="16" id="place-icon">
+          <span id="place-name" class="title"></span><br>
+          <span id="place-address"></span>
+        </div>
 
-        <label class="label">
-          Longitude:<br>
-          <input type="text" name="long"/><br><br>
-        </label>
-
-        <input type="submit" name = "register_btn" class = "submitBtn"/><br>
+        <input type="submit" name = "register_btn" class="submitBtn" value="Submit"/><br>
       </form>
+      
     </div>
     <div class = "spacer"></div>
   </div>
@@ -61,7 +67,7 @@
     $lat = array();
     $lon = array();
     $coordinates = array();
-    $link = mysqli_connect("localhost", "root", "root", "data",3306);
+    $link = mysqli_connect("localhost", "root", "", "mapshare");
 
     if (!$link) {
       echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -70,19 +76,17 @@
       exit;
     }
 
-    $sql = "SELECT latitude,longitude,title,about,date,address FROM events ORDER BY ID ASC";
+    $sql = "SELECT title,about,date,address FROM events ORDER BY ID ASC";
     $result = $link->query($sql);
 
     if($result->num_rows > 0){
       while($row = $result->fetch_assoc()){
-        $lat = $row["latitude"];
-        $lon = $row["longitude"];
         $name = $row["title"];
         $about = $row["about"];
         $date = $row["date"];
         $loc = $row["address"];
 
-        $coordinates[]=array($lat, $lon, $name, $about, $date, $loc);
+        $coordinates[]=array($name, $about, $date, $loc);
       }
       $locations = json_encode($coordinates);
     }
@@ -94,25 +98,23 @@
   ?>
 
   <div id="map">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFMtt2pb3rmfAaXj3S3-4vWO5ajd5j3So&callback=initMap"></script>
     <script type="text/javascript">
-      //some variables
-      var lat = <?php echo json_encode($lat);?>;
-      var lon = <?php echo json_encode($lon);?>;
 
       //locations as a list
-      <?php
-        echo "var locations=$locations;\n";
-      ?>
-      
+      <?php echo "var locations=$locations;\n";?>
+
       //function for map
       
       function initMap() {
         var map;
+        var geocoder = new google.maps.Geocoder();
+
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 38.487995, lng: -99.191275},
           zoom: 4
         });
-
+        
         var iconBase = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
         var icons = {
           basketball: {
@@ -123,52 +125,79 @@
         var marker,i;
         var markers = new Array();
         
-        
-        for (i = 0; i < locations.length; i++) { 
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-            //icon: icons['basketball'].icon,
-            map:map
+        locations.forEach(function(listItem,i) { 
+          var latitude;
+          var longitude;
+          var latLng;
+          var address = locations[i][3];
+
+          
+          geocoder.geocode({'address': address}, function(results,status){
+
+            var iconURL = "//img.icons8.com/small/32/000000/marker.png"; //Marker icon
+            if(status == google.maps.GeocoderStatus.OK){
+
+              <?php echo "var locations=$locations;\n";?>
+
+              console.log("i: " + i);
+
+
+              latitude = results[0].geometry.location.lat();
+              longitude = results[0].geometry.location.lng();
+              latLng = new google.maps.LatLng(latitude,longitude);
+
+              marker = new google.maps.Marker({
+                position: latLng,
+                map:map,
+                icon: {
+                  url: iconURL
+                }
+              });
+              
+              markers.push(marker);
+
+              //initializing the infoWindow
+              var infowindow = new google.maps.InfoWindow({
+                maxWidth: 500,
+                maxHeight: 300
+              });
+
+              //Adding in infowindow content
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  var windowContent = 
+                  'Name: ' + locations[i][0] + '<br>' + 
+                  'About: ' + locations[i][1] + '<br>' + 
+                  'Date and Time: ' + locations[i][2] + '<br>' +
+                  'Location: ' + locations[i][3];
+
+                  infowindow.setContent(windowContent);
+                  infowindow.open(map, marker);
+                } 
+              })(marker, i));
+              AutoCenter();
+
+            }
           });
 
-          markers.push(marker);
-
-          //initializing the infoWindow
-          var infowindow = new google.maps.InfoWindow({
-            maxWidth: 500,
-            maxHeight: 300
-          });
-
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              var windowContent = 
-              'Name: ' + locations[i][2] + '<br>' + 
-              'About: ' + locations[i][3] + '<br>' + 
-              'Date and Time: ' + locations[i][4] + '<br>' +
-              'Location: ' + locations[i][5];
-
-              infowindow.setContent(windowContent);
-              infowindow.open(map, marker);
-            } 
-          })(marker, i));
-        }
+        });
 
         function AutoCenter() {
           var bounds = new google.maps.LatLngBounds();
           $.each(markers, function (index, marker) {
-          bounds.extend(marker.position);
+            bounds.extend(marker.position);
           });
           
           map.fitBounds(bounds);
         }
-        AutoCenter();
+        
       }
 
     </script>
-
   </div>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFMtt2pb3rmfAaXj3S3-4vWO5ajd5j3So&callback=initMap"></script>
 
+  
+  
   <div class="footer">
     <p>© 2020 Sky Ventor</p><br>
   </div>

@@ -9,22 +9,57 @@ body {
 }
 
 .title{
-  background-color:black;
+  background-color:white;
   width: auto;
   height: auto;
-  border-color: black;
-
+  border-color: white;
 }
 
 .TitleText{
   display: inline-block;
   text-align: center;
-  color:white;
-  font-family: Impact, fantasy;
+  color:rgb(143, 123, 123);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, fantasy;
   font-weight:bold;
-  background-color:black;
+  background-color:white;
   margin:auto;
   padding: 14px 16px;
+}
+
+.slogan{
+  float: right;
+  display: inline-block;
+  margin:auto;
+  padding: 40px 16px;
+  font-family: Arial;
+  font-style: Italic;
+  font-size: 20px;
+  color: rgb(99, 74, 74);
+}
+
+.guide{
+  background-color:rgb(109, 109, 109);
+  width: auto;
+  height: auto;
+  border-color: white;
+
+}
+.menu{
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  margin:auto;
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu:hover{
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  margin:auto;
+  background-color: rgb(116, 112, 112);
+  
 }
 
 .image{
@@ -34,6 +69,7 @@ body {
 .spacer{
   padding:20px;
 }
+
 #map{
   height: 600px;  
   width: 900px;
@@ -42,17 +78,16 @@ body {
   margin-right:auto;
   margin-bottom:50px;
 }
+
 #Form{
   text-align:center;
-  border-color: black;
   font-family: Arial, Helvetica, sans-serif;
   word-spacing: 2pt;
 }
 
 .label{
   color:black;
-  padding-bottom:20px;
-
+  padding-bottom:100px;
 }
 
 #wrap{
@@ -60,12 +95,15 @@ body {
 }
 
 .submitBtn{
-  padding:5px;
+  padding:5px 5px;
+  float: center;
   border-color:black;
-  background-color:rgb(35, 35, 212);
+  background-color:rgb(18, 18, 83);
   color:white;
-  height:25px;
-  width:75px;
+  height:50px;
+  width:100px;
+  font-size:15px;
+  text-align:center;
 }
 
 #Submission{
@@ -73,9 +111,12 @@ body {
   padding:10px;
 }
 
-#desc{
+textarea{
   padding-bottom:20px;
-  width: 300px;
+  width: 500px;
+  height:100px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
 }
 
 .footer {
@@ -95,3 +136,15 @@ body {
 .button{
   margin-left:5px;
 }
+
+input[type=text], input[type=datetime-local], select{
+  width: 500px;
+  height: 25px;
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(143, 123, 123);
+}
+
+
