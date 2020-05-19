@@ -5,7 +5,7 @@ What you can do:
 - [x] Enter information about upcoming events
 - [x] View other events going on on the map
 
-Try out the web app for yourself [here](http://communimap.com)
+The site has not launched yet, but when it does you can try out the web app for yourself [here](http://communimap.com)
 
 
 
