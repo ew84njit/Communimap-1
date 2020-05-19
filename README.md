@@ -15,7 +15,7 @@ TODO:
 - [ ] Allow user to type in address instead of longitude and latitude
 - [ ] Improve aesthetics of Webpage
 
-**Click on the image below to see a video demonstration on how the application works.** 
+
 
 
 
