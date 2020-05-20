@@ -1,5 +1,5 @@
 # Communimap
-Communimap is a web application project where users can post events on to a public-view map powered by the Google Maps API. 
+Communimap is a web application project where users can post events on to a public-view map powered by the Google Maps API. This project was built with PHP, Javascript, and SQL. 
 
 **What you can do:**
 * Enter information about upcoming events
