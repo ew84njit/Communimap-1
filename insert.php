@@ -3,7 +3,7 @@
     <link rel = "stylesheet" type="text/css" href = "theme.css" media="all"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Insert - Pickup Finder</title>
+    <title>Thank You - Communimap</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
@@ -30,7 +30,7 @@
 </html>
 
 <?php
-$link = mysqli_connect("localhost", "root", "", "mapshare",3306);
+$link = mysqli_connect("localhost", "root", " ", "mapshare");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

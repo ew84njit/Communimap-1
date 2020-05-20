@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>	
 <head>
-  <title>Mapshare</title>
+  <title>Home - Communimap</title>
   <link rel = "stylesheet" type="text/css" href = "theme.css" media="all"/>
   <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <meta charset="utf-8">
@@ -50,12 +50,6 @@
           <input type="text" name="location" placeholder="Enter Address"/><br><br>
         </div>
 
-        <div id="infowindow-content">
-          <img src="" width="16" height="16" id="place-icon">
-          <span id="place-name" class="title"></span><br>
-          <span id="place-address"></span>
-        </div>
-
         <input type="submit" name = "register_btn" class="submitBtn" value="Submit"/><br>
       </form>
       
@@ -67,7 +61,7 @@
     $lat = array();
     $lon = array();
     $coordinates = array();
-    $link = mysqli_connect("localhost", "root", "", "mapshare");
+    $link = mysqli_connect("localhost", "root", " ", "mapshare");
 
     if (!$link) {
       echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -196,8 +190,6 @@
     </script>
   </div>
 
-  
-  
   <div class="footer">
     <p>© 2020 Sky Ventor</p><br>
   </div>
