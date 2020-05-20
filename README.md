@@ -8,5 +8,6 @@ What you can do:
 The site has not launched yet, but when it does you can try out the web app for yourself [HERE](http://communimap.com) or just type in http://communimap.com. 
 
 **NOTE:** there are still some changes to be made. This is a work in progress demo. 
-
+* Delete marker button will be added soon
+* Edit event function will be added soon
 
