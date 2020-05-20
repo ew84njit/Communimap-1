@@ -7,7 +7,7 @@ Communimap is a web application project where users can post events on to a publ
 
 If the site is up and running, you can try out the web app for yourself [HERE](http://communimap.com) or just type in http://communimap.com. 
 
-***NOTE:*** there are still some changes to be made. This is a work in progress demo. 
+***NOTE:*** There are still some changes to be made. This is a work in progress demo. 
 
 **Pending Updates:**
 * Delete marker button will be added soon
